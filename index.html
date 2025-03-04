@@ -25,6 +25,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
             border-radius: 8px;
+            width: 300px;
         }
         img {
             width: 200px;
@@ -49,6 +50,31 @@
         button:hover {
             background-color: #219150;
         }
+        .image-scroll {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            overflow-x: scroll;
+            padding-bottom: 10px;
+        }
+        .image-scroll img {
+            margin-right: 10px;
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .see-more {
+            margin-top: 15px;
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .see-more:hover {
+            background-color: #2980b9;
+        }
         footer {
             margin-top: 50px;
             padding: 10px;
@@ -63,18 +89,58 @@
     <header>
         Kairos
     </header>
+
     <main>
+        <!-- Items Above the Wig -->
+        <section class="product">
+            <h2>Featured Product 1</h2>
+            <img src="product1.jpg" alt="Product 1">
+            <p class="price">$12.00</p>
+        </section>
+        
+        <section class="product">
+            <h2>Featured Product 2</h2>
+            <img src="product2.jpg" alt="Product 2">
+            <p class="price">$18.00</p>
+        </section>
+
+        <!-- Wig Product -->
         <section class="product">
             <img id="product-image" src="IMG_7259.jpeg" alt="Wig">
             <h2>Wig</h2>
             <p class="price">$15.00</p>
             <a href="cart.html"><button>Add to Cart</button></a>
         </section>
+
+        <!-- Scroll of Three Images -->
+        <div class="image-scroll">
+            <img src="IMG_7259.jpeg" alt="Wig Image 1">
+            <img src="product1.jpg" alt="Product Image 2">
+            <img src="product2.jpg" alt="Product Image 3">
+        </div>
+
+        <!-- See More Button -->
+        <a href="#details" class="see-more">See More</a>
+        
+        <!-- Hidden Product Details (to be revealed on click) -->
+        <section id="details" style="display:none; margin-top: 30px;">
+            <h3>Product Details</h3>
+            <p>Here you can add more detailed information about the wig, such as material, care instructions, or other relevant features.</p>
+        </section>
     </main>
 
     <footer>
         &copy; 2025 Kairos. All rights reserved.
     </footer>
+
+    <script>
+        // Toggle product details visibility when "See More" is clicked
+        document.querySelector('.see-more').addEventListener('click', function(e) {
+            e.preventDefault();
+            const detailsSection = document.getElementById('details');
+            detailsSection.style.display = detailsSection.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
 
 </body>
 </html>
